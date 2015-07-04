@@ -1,0 +1,233 @@
+.study-header {
+    background-color :#337ab7;
+    color : white;
+    height : 30px;
+    margin-bottom : 10px;
+}
+
+.study-top-banner {
+    position: relative;
+    padding : 0px;
+}
+
+.study-top-banner img {
+    padding-left : 0px;
+    padding-top : 2px;
+    opacity : 0.9;
+}
+
+.study-top-menu {
+    display: inline-block;
+    position: absolute;
+    margin-top : 5px;
+    right : 0px;
+}
+
+.study-top-menu a {
+    padding-left : 15px;
+    color: white;
+    opacity : 0.8;
+}
+
+.study-top-menu a:hover {
+    text-decoration : none;
+    opacity : 1.0;
+}
+
+.study-body {
+    padding: 0px;
+}
+
+.study-board {
+    margin : 0px;
+}
+
+.study-title {
+    padding-left : 5px;
+    font-size : 1.5em;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.study-left-panel {
+    background-color : white;
+    width : 864px;
+    padding-left : 5px;
+    padding-right: 5px;
+}
+
+.study-lesson-title {
+    height : 40px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+.study-lesson-header {
+    font-weight : bold;
+}
+
+.study-lesson-name {
+    font-weight : bold;
+    padding-left : 5px;
+}
+
+.study-blackboard {
+    background-color : white;
+}
+
+.study-player {
+    margin-bottom : 5px;
+}
+
+.study-breakpage {
+    margin-bottom : 5px;
+
+    height : 480px;
+}
+
+.break-text {
+    margin-bottom : 35px;
+}
+
+.break-opt {
+    text-align : center;
+}
+
+.break-opt button {
+    margin-right : 10px;
+}
+
+.quiz-nav {
+    top : 5px;
+    right : 5px;
+}
+
+.quiz-nav-last {
+    right: 71px;
+}
+
+.quiz-progress {
+    right: 15px;
+    position: absolute;
+}
+
+.quiz-problem {
+    margin-bottom : 15px;
+}
+
+.quiz-statement {
+    margin-bottom : 5px;
+    text-align: justify;
+}
+
+.quiz-figures {
+    margin-bottom : 5px;
+}
+
+.quiz-question {
+    margin-bottom : 5px;
+    text-align: justify;
+}
+
+.quiz-hint {
+    color : #31708f;
+    background-color : #d9edf7;
+    border : 1px solid transperent;
+    border-radius : 4px;
+    padding : 10px;
+    margin-bottom : 5px;
+}
+
+.quiz-instruction {
+    font-style: italic;
+}
+
+.quiz-choice-opt {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.quiz-sum-result {
+    margin-bottom : 20px;
+}
+
+.quiz-sum-result td {
+    padding : 5px;
+}
+
+.quiz-detail-result td {
+    padding : 5px;
+}
+
+.study-access-panel {
+
+    margin-top : 0px;
+    margin-left : 0px;
+    margin-right : 0px;
+    margin-bottom: 5px;
+
+    height : 50px;
+
+    padding-left : 0px;
+
+}
+
+.study-access-panel button {
+    color : #337ab7;
+}
+
+
+.study-extent-header {
+    font-size : 1.5em;
+    font-weight : bold;
+    color : #337ab7;
+    margin-bottom : 5px;
+}
+
+.study-question {
+    position : relative;
+}
+
+.study-form-opt {
+    margin-top : 5px;
+}
+
+.study-extent td {
+    border-top : 0px solid white !important;
+}
+
+.study-dl-icon {
+    text-align : right;
+}
+
+.study-extent a > span {
+    font-size : 1.5em;
+}
+
+
+.study-right-panel {
+    width : 306px;
+}
+
+.study-syllabus-title {
+    height : 40px;
+    font-size : 1.2em;
+    font-weight : bold;
+    padding-top : 10px;
+}
+
+.study-syllabus td {
+    padding-left : 5px;
+    padding-right : 5px;
+    padding-top : 5px;
+    padding-bottom : 5px;
+    vertical-align : top;
+}
+
+.study-footer {
+    margin-top : 150px;
+    height : 250px;
+    background-color : #337ab7;
+    color : white;
+    opacity : 0.8;
+}

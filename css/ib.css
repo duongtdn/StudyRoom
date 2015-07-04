@@ -1,0 +1,60 @@
+
+.interactive-board {
+    width : 864px;
+}
+
+.ib-overlay {
+
+    background-color	: rgba(255,255,255,0.7);
+    height				: 2109px;
+    width				: 100%;
+
+    position			: fixed;
+    top					: 0px;
+    left				: 0px;
+
+    z-index				: 99;
+
+}
+
+.ib-resultbox {
+
+    display				: block;
+
+    position            : relative;
+    top                 : 150px;
+
+    margin-left			: auto;
+    margin-right		: auto;
+
+    width				: 500px;
+    height				: 280px;
+
+    border 				: 2px solid #337ab7;
+    border-radius		: 5px;
+    box-shadow			: 5px 5px 5px #888888;
+
+    background-color	: white;
+
+    text-align			: center;
+    text-indent			: 0;
+    font-size			: 100%;
+    font-family			: "Calibri", serif;
+}
+
+.ib-resultimg {
+    margin-top          : 10px;
+    width               : 150px;
+}
+
+.ib-message {
+    margin-top          : 35px;
+
+}
+
+.ib-btn-close {
+    position            : absolute;
+    bottom              : 10px;
+    width               : 100px;
+    margin-left         : -50px;
+}

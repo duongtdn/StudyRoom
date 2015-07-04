@@ -1,0 +1,85 @@
+{
+    "zone" : [],
+
+    "background" : [],
+
+    "front" : [
+        {
+            "node" : 1,
+            "type" : "canvas",
+            "shape" : "Circle",
+            "attr" : {
+                "x" : 100,
+                "y" : 100,
+                "radius" : 40,
+                "fill" : "yellow",
+                "opacity" : 0.7,
+                "stroke" : "black",
+                "strokeWidth" : 3
+            },
+            "selected" : false,
+            "selectable" : true,
+            "selectedStroke" : "green",
+            "selectedStrokeWidth" : "4",
+            "value" : "",
+            "tooltip" : "Yellow Circle should be put to Yellow Rect",
+            "correctMsg" : "",
+            "wrongMsg" : "",
+            "rule" : "selected = 1",
+            "zone" : "",
+            "check" : false
+        },
+        {
+            "node" : 2,
+            "shape" : "Rect",
+            "type" : "canvas",
+            "attr" : {
+                "x" : 250,
+                "y" : 100,
+                "width" : 80,
+                "height" : 80,
+                "fill" : "red",
+                "opacity" : 0.7,
+                "stroke" : "black",
+                "strokeWidth" : 3
+            },
+            "selected" : false,
+            "selectable" : true,
+            "selectedStroke" : "green",
+            "selectedStrokeWidth" : "4",
+            "value" : "",
+            "tooltip" : "Red Circle should be put to Red Rect",
+            "correctMsg" : "",
+            "wrongMsg" : "",
+            "rule" : "selected = 0",
+            "zone" : "",
+            "check" : false
+        },
+        {
+            "node" : 3,
+            "type" : "canvas",
+            "shape" : "RegularPolygon",
+            "attr" : {
+                "x" : 450,
+                "y" : 100,
+                "sides" : 6,
+                "radius" : 40,
+                "fill" : "#00D2FF",
+                "opacity" : 0.7,
+                "stroke" : "black",
+                "strokeWidth" : 3
+            },
+            "selected" : false,
+            "selectable" : true,
+            "selectedStroke" : "green",
+            "selectedStrokeWidth" : "4",
+            "value" : "",
+            "tooltip" : "Red Circle should be put to Red Rect",
+            "correctMsg" : "",
+            "wrongMsg" : "",
+            "rule" : "selected = 1",
+            "zone" : "",
+            "check" : false
+        }
+    ]
+}

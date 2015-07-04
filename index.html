@@ -1,0 +1,90 @@
+ <!DOCTYPE html>
+
+<html ng-app="WorkPanel">
+    <head>
+        <meta charset='UTF-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/ib.css" />
+<!--
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+
+        <script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-sanitize.js"></script>
+		<script type="text/javascript" src="js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+
+		<script src="http://www.youtube.com/player_api"></script>
+-->
+
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/mkinetic-v5.1.0.js"></script>
+        <script type="text/javascript" src="js/kinetic-addon.js"></script>
+        <script type="text/javascript" src="js/ib.js"></script>
+
+        <style>
+            [contenteditable="true"].single-line {
+                white-space: nowrap;
+                width:200px;
+                overflow: hidden;
+            }
+            [contenteditable="true"].single-line br {
+                display:none;
+
+            }
+            [contenteditable="true"].single-line * {
+                display:inline;
+                white-space:nowrap;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <button id="btn-back" onclick="IB.back()" >Back</button>
+            <button id="btn-next" onclick="IB.next()" > Next </button>
+
+            <div class="panel panel-primary interactive-board" style="margin-top: 10px">
+                <div class="panel-heading" > Interactive Board </div>
+                <div class="panel-body">
+                    <div id="instruction">
+                    </div>
+                    <div id="interactive-board" style="position:relative">
+                        <div id="cv-container"></div>
+<!--
+                    <svg version="1.1"
+                         xmlns="http://www.w3.org/2000/svg"
+                         width="400" height="300">
+
+                        <style>
+                            circle {
+                                stroke-width: 2;
+                                fill: yellow;
+                                stroke: black;
+                            }
+                        </style>
+
+                        <circle id="my-circle" cx="100" cy="100" r="40" />
+
+                    </svg>
+-->
+                    </div>
+                </div>
+            </div>
+
+
+            <button id="btn1">Show Check-Board</button>
+            <button id="btn2">Hide Check-Board</button>
+            <button id="btn3">Clean</button>
+            <button id="btn4">Load Check-Board Content</button>
+
+
+        </div>
+
+    </body>
+
+
+</html>

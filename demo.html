@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html ng-app="WorkPanel">
+   <head>
+       <meta charset='UTF-8'>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+       <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+       <script type="text/javascript" src="js/mkinetic-v5.1.0.js"></script>
+       <script type="text/javascript" src="js/kinetic-addon.js"></script>
+
+
+   </head>
+
+   <body>
+
+        <div id="container"></div>
+
+        <button type='button' id="btn">Change Textbox</button>
+
+
+        <script>
+
+
+            var stage = new Kinetic.Stage({
+                container: 'container',
+                width: 800,
+                height: 200
+            });
+
+            var layer = new Kinetic.Layer();
+
+            var textbox = new Kinetic.Textbox({
+                x : 100,
+                y : 100,
+                //draggable : true,
+                width : 100,
+                height : 30,
+
+                fill : 'yellow',
+                opacity : 0.5,
+                stroke : 'black',
+
+                text : '',
+                fontFamily : 'calibri',
+                fontSize : 14,
+                padding : 5,
+                textFill : 'green'
+            });
+
+            var text = new Kinetic.Text({
+                x: 50,
+                y: 50,
+                draggable : true,
+                text : 'TEXT',
+                fill : 'black'
+            });
+            text.on("click", function(){
+                alert('text clicked');
+            });
+
+            layer.add(textbox);
+            layer.add(text);
+            stage.add(layer);
+
+            var i = 1;
+            $('#btn').click(function(){
+                //textbox.setText("NEW TEXTBOX IS CHANGED");
+                text.setText("NEW TEXT");
+                layer.draw();
+
+
+
+                    canvas.focus();
+
+
+                canvas.addEventListener("keypress", function (evt) {
+                    var currentText = textbox.getText();
+                    var updatedText = currentText + String.fromCharCode(evt.keyCode);
+                    textbox.setText(updatedText);
+                    layer.draw();
+                    console.log(evt.keyCode + ' - ' + String.fromCharCode(evt.keyCode)); // your handler here
+                });
+                canvas.addEventListener("click", function() {
+                    console.log('canvas clicked ' + i);
+                    i++;
+                    var that = this;
+                    event.stopPropagation();
+                });
+                console.log(canvas);
+
+            });
+
+            var lastDownTarget;
+            var canvas=layer.getCanvas()._canvas;
+            $(canvas).attr('tabindex', 1); // increase tabindex if needed
+            document.addEventListener('mousedown', function(event) {
+                lastDownTarget = event.target;
+                    console.log(lastDownTarget);
+            });
+
+            document.addEventListener('keydown', function(evt) {
+                if(lastDownTarget == canvas) {
+                    console.log(evt.keyCode + ' - ' + String.fromCharCode(evt.keyCode));
+                    var currentText = textbox.getText();
+                    var updatedText = currentText + String.fromCharCode(evt.keyCode);
+                    textbox.setText(updatedText);
+                    layer.draw();
+                }
+            });
+
+
+        </script>
+
+   </body>
+
+
+</html>

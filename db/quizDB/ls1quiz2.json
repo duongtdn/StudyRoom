@@ -1,0 +1,83 @@
+[
+    {
+        "quiz"        : 1,
+        "title"       : "question 1",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "",
+        "hint"        : "",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "It is based on the directive"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Based on the name of signals"}
+        ],
+        "answers"     : ["B"]
+    },
+    {
+        "quiz"        : 2,
+        "title"       : "question 2",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "",
+        "hint"        : "",
+        "instruction" : "Select two answers",
+        "type"        : "mc",
+        "choices"     : [
+            {"id": "A", "label": "Wrong answer"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Right answer"},
+            {"id": "D", "label": "Wrong answer"}
+        ],
+        "answers"     : ["B","C"]
+    },
+    {
+        "quiz"        : 3,
+        "title"       : "question 3",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "",
+        "hint"        : "",
+        "instruction" : "Select two answers",
+        "type"        : "mc",
+        "choices"     : [
+            {"id": "A", "label": "Right answer"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Wrong answer"}
+        ],
+        "answers"     : ["A","B"]
+    },
+    {
+        "quiz"        : 4,
+        "title"       : "question 4",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "",
+        "hint"        : "",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "Right answer"},
+            {"id": "B", "label": "Wrong answer" },
+            {"id": "C", "label": "Wrong answer"}
+        ],
+        "answers"     : ["A"]
+    },
+    {
+        "quiz"        : 5,
+        "title"       : "question 5",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "",
+        "hint"        : "",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "Wrong answer"},
+            {"id": "B", "label": "Right answer"},
+            {"id": "C", "label": "Wrong answer"}
+        ],
+        "answers"     : ["B"]
+    }
+]

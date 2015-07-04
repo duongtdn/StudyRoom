@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html ng-app='StudyBoard'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/study.css" />
+
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/angular-sanitize.js"></script>
+
+        <script type="text/javascript" src="js/study-board.js"></script>
+
+        <script type="text/javascript" src="js/common.js"></script>
+
+        <script type="text/javascript" src="js/multimedia.js"></script>
+        <script type="text/javascript" src="js/lesson.js"></script>
+
+    </head>
+
+    <body>
+
+        <!-- header bar -->
+        <div class="study-header">
+            <div class="study-top-banner container">
+
+                <img src="img/hvm.png" width="130">
+                <div class="study-top-menu">
+                    <a href="#">
+                        Home
+                    </a>
+                    <a href="#">
+                        Course Catalog
+                        <span class="caret"></span>
+                    </a>
+                    <a href="#">
+                        Username
+                        <span class="caret"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div> <!-- header bar -->
+
+        <!-- body -->
+        <div class="study-body container" ng-controller="ClassController as class">
+
+            <!-- title -->
+            <div class="study-title">
+                {{class.name}}
+            </div> <!-- title -->
+
+            <div id="lessonCtrl" class="study-board row" ng-controller="LessonController as lesson">
+                <!-- left-panel -->
+                <div class="study-left-panel col-sm-9">
+
+                    <!-- lesson title -->
+                    <div class="study-lesson-title dropdown">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="lessonMenu" data-toggle="dropdown" aria-expanded="true">
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="study-lesson-header"> {{lesson.name}} </span>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                        <span class="study-lesson-name"> {{lesson.snippet}} </span>
+                        <div class="right-align">
+                            <button class="btn btn-default btn-sm" type="button" onclick="onGoBack()">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                Back
+                            </button>
+                            <button class="btn btn-default btn-sm" type="button" onclick="onSenceFinish()">
+                                Next
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="lessonMenu">
+                            <li role="presentation" ng-repeat="lesson in class.lesson">
+                                <a role="menuitem" tabindex="-1" ng-href="{{lesson.url}}">{{lesson.name}}: {{lesson.snippet}}</a>
+                            </li>
+                        </ul>
+
+                    </div> <!-- lesson title -->
+                    <!-- study-blackboard -->
+                    <div class="study-blackboard">
+
+                        <!-- Main player where display video or interactive board -->
+                        <div class="study-player">
+
+                            <!-- the video player -->
+                            <div class="study-videoplayer">
+                                <div id="player" ></div>
+                            </div> <!-- the video player -->
+
+                            <!-- the break page -->
+                            <div class="study-breakpage panel panel-primary hidden">
+                                <div class="panel-heading break-title" > </div>
+                                <div class="panel-body">
+                                    <div class="break-text">
+                                    </div>
+                                    <div class="break-opt">
+                                    </div>
+                                </div>
+                            </div> <!-- the video player -->
+
+                            <!-- the quiz page -->
+                            <div id="quizCtrl" class="study-quiz hidden" ng-controller="QuizController as quiz">
+                                <div class="quiz-nav right-align" ng-class="{'quiz-nav-last':quiz.isLastQuiz()}">
+                                    <button class="btn btn-default btn-sm" type="button" ng-click="quiz.previousQuiz()" ng-hide="quiz.isFirstQuiz()">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        Back
+                                    </button>
+                                    <button class="btn btn-default btn-sm" type="button" ng-click="quiz.nextQuiz()" ng-hide="quiz.isLastQuiz()">
+                                        Next
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </button>
+                                </div>
+                                <div ng-switch on="quiz.showResult">
+                                    <div ng-switch-when="false">    <!-- show quiz panel -->
+                                        <div class="quiz-panel panel panel-primary">
+                                            <div class="quiz-title panel-heading">
+                                               <strong>{{quiz.title}}</strong>
+                                               <label class="quiz-progress">
+                                                   <div class="circle circle-border" ng-class="{'circle-queue':quiz.isQueue(state),'circle-processing':quiz.isProcessing(state),'circle-done':quiz.isDone(state)}" ng-repeat="state in quiz.progress track by $index"></div>
+                                               </label>
+                                           </div>
+                                           <div class="quiz-body panel-body">
+                                               <div class="quiz-problem">
+                                                    <div class="quiz-statement" ng-bind-html="quiz.problem" ></div>
+                                                    <div class="quiz-figures" ng-repeat="figure in quiz.figures">
+                                                        <img ng-src = {{figure}} />
+                                                    </div>
+                                                    <div class="quiz-question" ng-bind-html="quiz.question"></div>
+                                                    <div class="quiz-hint" ng-hide="quiz.emptyHint()">
+                                                       <span><u>Hint:</u></span>
+                                                       <span ng-bind-html="quiz.hint"></span>
+                                                   </div>
+                                                   <div class="quiz-instruction"> {{quiz.instruction}} </div>
+                                               </div>
+                                               <div class="quiz-anschoice">
+                                                   <div ng-switch on = "quiz.type">
+                                                       <!-- single choice quiz -->
+                                                       <div ng-switch-when = "sc">
+                                                           <label class="quiz-choice-opt cursor-pointer" ng-repeat="choice in quiz.choices" on-finish>
+                                                               <input id="opt-{{choice.id}}" type="radio" class="cursor-pointer" ng-model="quiz.selectAns[0]" value="{{choice.id}}" ng-change="quiz.updateAns()"><label for="opt-{{choice.id}}" class="cursor-pointer">{{choice.label}}</label>
+                                                           </label>
+                                                       </div>
+                                                       <!-- multiple choice quiz -->
+                                                       <div ng-switch-when = "mc">
+                                                           <label class="quiz-choice-opt cursor-pointer" ng-repeat="choice in quiz.choices" on-finish>
+                                                               <input id="opt-{{choice.id}}" type="checkbox" class="cursor-pointer" ng-model="quiz.selectAns[$index]" ng-true-value="'{{choice.id}}'" ng-false-value="'no'" ng-change="quiz.updateAns()"><label for="opt-{{choice.id}}" class="cursor-pointer">{{choice.label}}</label>
+                                                           </label>
+                                                       </div>
+                                                       {{quiz.testAns}}
+                                                   </div>
+                                               </div>
+                                           </div>
+                                        </div>
+                                    </div> <!-- show quiz panel -->
+                                    <div ng-switch-when="true"> <!-- show Result panel -->
+                                        <div class="quiz-panel panel panel-primary">
+                                            <div class="quiz-title panel-heading">
+                                               <strong>Summarized Results</strong>
+                                               <label class="quiz-progress">
+                                                   <div class="circle circle-border" ng-class="{'circle-queue':quiz.isQueue(state),'circle-processing':quiz.isProcessing(state),'circle-done':quiz.isDone(state)}" ng-repeat="state in quiz.progress track by $index"></div>
+                                               </label>
+                                           </div>
+                                           <div class="quiz-body panel-body">
+                                               <div class="quiz-sum-result">
+                                                    <table>
+                                                        <tr>
+                                                            <td class="text-primary"> <strong> Total questions </strong> </td>
+                                                            <td > <span class="label label-primary label-as-badge">{{quiz.countTotal()}}</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-info"> <strong> Answerred </strong> </td>
+                                                            <td> <span class="label label-info label-as-badge">{{quiz.countAnswerred()}}</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-success"> <strong> Correct </strong> </td>
+                                                            <td> <span class="label label-success label-as-badge">{{quiz.countCorrect()}}</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-warning"> <strong> Wrong </strong> </td>
+                                                            <td> <span class="label label-warning label-as-badge">{{quiz.countWrong()}}</span></td>
+                                                        </tr>
+                                                    </table>
+                                               </div> <!-- sum results -->
+                                               <div class="quiz-detail-result">
+                                                    <table class="table-hover">
+                                                        <tr class="cursor-pointer" ng-repeat = "qst in quiz.quizData">
+                                                            <td class ="col-sm-1 glyphicon" ng-class="{'success text-success glyphicon-ok':quiz.isCorrect($index), 'warning text-warning glyphicon-remove':quiz.isWrong($index), 'text-muted glyphicon-question-sign':quiz.isNotAnswer($index)}" ng-click="quiz.goTo($index)"></td>
+                                                            <td class="col-sm-10" ng-class="{'success text-success':quiz.isCorrect($index), 'warning text-warning':quiz.isWrong($index), 'text-muted':quiz.isNotAnswer($index)}" ng-click="quiz.goTo($index)" > {{qst.title}} </td>
+                                                            <td class="col-sm-1" ng-class="{'success text-success':quiz.isCorrect($index), 'warning text-warning':quiz.isWrong($index), 'text-muted':quiz.isNotAnswer($index)}">
+                                                                <button type="button" class="btn btn-sm" ng-class="{'btn-success':quiz.isCorrect($index), 'btn-warning':quiz.isWrong($index)}" >
+                                                                    Check solution
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                               </div> <!-- detail results -->
+                                           </div>
+                                        </div>
+                                    </div> <!-- show Result panel -->
+                                </div>
+                            </div> <!-- the video player -->
+
+
+                        </div> <!-- stydy-player -->
+
+                        <div class="study-access-panel">
+                            <button type="button" class="btn btn-default btn-lg" title="Dashboard">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-lg" title="Resources">
+                                <span class="glyphicon glyphicon-cloud-download"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-lg" title="Stats">
+                                <span class="glyphicon glyphicon-stats"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-lg" title="Chat room">
+                                <span class="glyphicon glyphicon-comment"></span>
+                            </button>
+                        </div>
+
+                        <!-- study-extent -->
+                        <div class="study-extent">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="study-extent-header">
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                        Ask instructor
+                                    </div>
+                                    <div class="study-question">
+                                        <div> <em> If you have any issue need to ask instructor, please submit <em> </div>
+                                        <form role="form">
+                                            <textarea class="form-control" rows="5" id="question"></textarea>
+                                            <div class="study-form-opt">
+                                                <button class="btn btn-info btn-sm right-align">
+                                                    submit
+                                                    <span class="glyphicon glyphicon-send"></span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="study-extent-header">
+                                        <span class="glyphicon glyphicon-cloud-download"></span>
+                                        Downloadables
+                                    </div>
+                                    <table class="table table-hover">
+                                        <tr ng-repeat="dl in lesson.downloadable">
+                                            <td>
+                                                {{dl.item}}
+                                            </td>
+                                            <td class="study-dl-icon">
+                                                <a ng-href="{{dl.url}}" target="blank">
+                                                    <span class="glyphicon glyphicon-download"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> <!-- study-extent -->
+                    </div> <!-- study-blackboard -->
+
+                </div> <!-- left-panel -->
+
+                <!-- right-panel -->
+                <div class="study-right-panel col-sm-3">
+
+                    <div class="study-syllabus-title">
+                        <p>SYLLABUS</p>
+                    </div>
+
+                    <!-- syllabus -->
+                    <div class="study-syllabus">
+                        <table class="table-hover">
+                            <tr class="cursor-pointer" ng-repeat="topic in lesson.topic" ng-click="lesson.moveToTopic($index)">
+                                <td class="col-sm-1"> {{topic.id}} </td>
+                                <td class="col-sm-9"> {{topic.name}} </td>
+                                <td class="col-sm-1 glyphicon"
+                                    ng-class="{'glyphicon-ok':lesson.isDone($index), 'glyphicon-bookmark':lesson.isViewing($index)}"> </td>
+                            </tr>
+                        </table>
+                    </div> <!-- syllabus -->
+                </div> <!-- right-panel -->
+            </div> <!-- row -->
+        </div> <!-- body -->
+
+
+        <!-- footer -->
+        <div class="study-footer">
+            <div class="study-footer-info container">
+                <div class="row">
+                    <div class="company-footer-info col-sm-7">
+                        HVM Training Center
+                        a subsidiary of InouTek Corp.
+                    </div>
+                    <div class="col-sm-5">
+                        Contact
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+
+</html>

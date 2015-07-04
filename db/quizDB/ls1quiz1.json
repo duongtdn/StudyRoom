@@ -1,0 +1,82 @@
+[
+    {
+        "quiz"        : 1,
+        "title"       : "Question 1",
+        "problem"     : "In the below code, Assume that this statement models a flop with async reset.",
+        "figures"     : ["img/quiz/code.png"],
+        "question"    : "How does the synthesis tool, figure out which is <code>clock</code> and which is reset.",
+        "hint"        : "Use <strong>GOOGLE</strong> for the answer",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "It is based on the directive"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Based on the name of signals"}
+        ],
+        "answers"     : ["B"]
+    },
+    {
+        "quiz"        : 2,
+        "title"       : "Question 2",
+        "problem"     : "Referring to the diagram below",
+        "figures"     : ["img/quiz/question_ff_delay.gif"],
+        "question"    : "briefly explain what will happen if <mark>the propagation delay</mark> of the clock signal in path B is much too high compared to path A",
+        "hint"        : "",
+        "instruction" : "Select two answers",
+        "type"        : "mc",
+        "choices"     : [
+            {"id": "A", "label": "Wrong answer"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Right answer"},
+            {"id": "D", "label": "Wrong answer"}
+        ],
+        "answers"     : ["B","C"]
+    },
+    {
+        "quiz"        : 3,
+        "title"       : "Question 3",
+        "problem"     : "Referring to the diagram below",
+        "figures"     : ["img/quiz/questi4.gif","img/quiz/questi5.gif"],
+        "question"    : "What is the output of AND gate in the circuit below, when A and B are as in waveform? Tp is the gate delay of respective gate",
+        "hint"        : "",
+        "instruction" : "Select two answers",
+        "type"        : "mc",
+        "choices"     : [
+            {"id": "A", "label": "Right answer"},
+            {"id": "B", "label": "Right answer" },
+            {"id": "C", "label": "Wrong answer"}
+        ],
+        "answers"     : ["A","B"]
+    },
+    {
+        "quiz"        : 4,
+        "title"       : "Question 4",
+        "problem"     : "",
+        "figures"     : [],
+        "question"    : "What is the current through the resistor R1 (Ic) ?",
+        "hint"        : "",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "Right answer"},
+            {"id": "B", "label": "Wrong answer" },
+            {"id": "C", "label": "Wrong answer"}
+        ],
+        "answers"     : ["A"]
+    },
+    {
+        "quiz"        : 5,
+        "title"       : "Question 5",
+        "problem"     : "Lets first make some order and present the input and required outputs in a tabl",
+        "figures"     : ["img/quiz/table.png"],
+        "question"    : "What is the current through the resistor R1 (Ic) ?",
+        "hint"        : "",
+        "instruction" : "Select one answer",
+        "type"        : "sc",
+        "choices"     : [
+            {"id": "A", "label": "Right answer"},
+            {"id": "B", "label": "Wrong answer" }
+        ],
+        "answers"     : ["A"]
+    }
+]

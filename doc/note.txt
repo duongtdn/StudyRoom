@@ -1,0 +1,11 @@
+study-room
+
+anchor page is studyroom.php
+
+use HTTP GET : studyroom.php?lesson=lesson1
+
+studyroom.php process to retrieve lesson json file, include studyboard.html, and
+append script tage to call getLessonDB() with corresponding json location
+
+getLessonDB() function then use HTTP POST (via AJAX) to load lesson json, then
+notify angular to render page and load lesson controller

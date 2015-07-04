@@ -1,0 +1,80 @@
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.right-align {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+}
+
+.circle {
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 50%;
+    width: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.circle-border {
+    border: 0px solid black;
+}
+
+.circle-done{
+    background-color: #00bfff;
+}
+
+.circle-queue{
+    background-color: orange;
+}
+
+.circle-processing{
+    background-color: white;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.circle-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* better checkbox and radio button */
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -28px;
+  padding-left : 28px;
+  background   : url('../img/checks.png') no-repeat 0 0;
+  line-height  : 24px;
+}
+
+input[type=checkbox]:not(old):checked + label{
+  background-position : 0 -24px;
+}
+
+input[type=radio]:not(old):checked + label{
+  background-position : 0 -48px;
+}

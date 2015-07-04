@@ -1,0 +1,72 @@
+{
+    "name" : "Lesson 2",
+    "snippet" : "Verilog Day 2",
+    "service" : "YT",
+    "topic" : [
+        {
+            "id": 1,
+            "name": "Detailed in blocking and nonblocking",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"video",
+                    "src": "XQMnT9baoi8",
+                    "next": 2,
+                    "previous": 0
+                },
+                {
+                    "seq": 2,
+                    "type":"quiz",
+                    "uri": "ls1quiz1.json",
+                    "next": 3,
+                    "previous": 1
+                },
+                {
+                    "seq": 3,
+                    "type":"video",
+                    "src": "ASj81daun5Q",
+                    "next": 0,
+                    "previous": 2
+                }
+            ]
+        },
+
+        {
+            "id": "2",
+            "name": "Understanding Data Types",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"video",
+                    "src": "JAUoeqvedMo",
+                    "next": 2,
+                    "previous": 0
+                },
+                {
+                    "seq": 2,
+                    "type":"quiz",
+                    "uri": "ls1quiz2.json",
+                    "next": 3,
+                    "previous": 1
+                },
+                {
+                    "seq": 3,
+                    "type":"break",
+                    "content": {
+                        "text": "Congrass, you have finished lesson 2. Do you wanna study next lesson?",
+                        "opt": [
+                            {"id": 1, "label": "Continue...", "next": 0}
+                        ]
+                    },
+                    "defaultNext": 0,
+                    "previous": 2
+                }
+            ]
+        }
+    ],
+    "downloadable" : [
+        {"item": "Instruction Note", "url": "http://www.gmail.com"},
+        {"item": "Quick chart", "url": "http://www.inoutek.com"},
+        {"item": "Summarized statement", "url": "http://www.inoutek.vn"}
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "name" : "Lesson 1",
+    "snippet" : "Verilog Day 1",
+    "service" : "YT",
+    "topic" : [
+        {
+            "id": 1,
+            "name": "Introduction to Verilog",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"video",
+                    "src": "XQMnT9baoi8",
+                    "next": 2,
+                    "previous": 0
+                },
+                {
+                    "seq": 2,
+                    "type":"break",
+                    "content": {
+                        "text": "Do you want to play next lesson or take time to qo a quiz?",
+                        "opt": [
+                            {"id": 1, "label": "Next lesson: Marchant prince", "next": 3},
+                            {"id": 2, "label": "Do a quiz", "next": 4}
+                        ]
+                    },
+                    "defaultNext": 4,
+                    "previous": 1
+                },
+                {
+                    "seq": 3,
+                    "type":"video",
+                    "src": "ZgSCNS851Rg",
+                    "next": 5,
+                    "previous": 4
+                },
+                {
+                    "seq": 4,
+                    "type":"quiz",
+                    "uri": "ls1quiz1.json",
+                    "next": 3,
+                    "previous": 2
+                },
+                {
+                    "seq": 5,
+                    "type":"video",
+                    "src": "ASj81daun5Q",
+                    "next": 0,
+                    "previous": 3
+                }
+            ]
+        },
+
+        {
+            "id": "2",
+            "name": "Understanding Data Types",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"video",
+                    "src": "JAUoeqvedMo",
+                    "next": 2,
+                    "previous": 0
+                },
+                {
+                    "seq": 2,
+                    "type":"quiz",
+                    "uri": "ls1quiz2.json",
+                    "next": 0,
+                    "previous": 1
+                }
+            ]
+        },
+
+        {
+            "id": "3",
+            "name": "Good Design Practice Procedures and Coding Styles",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"video",
+                    "src": "z3biFxZIJOQ",
+                    "next": 0,
+                    "previous": 0
+                }
+            ]
+        },
+
+        {
+            "id": "4",
+            "name": "Simulation Methodologies",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"break",
+                    "content": {
+                        "text": "",
+                        "opt": [
+                            {"id": 1, "label": "Continue...", "next": 0}
+                        ]
+                    },
+                    "defaultNext": 0,
+                    "previous": 0
+                }
+            ]
+        },
+
+        {
+            "id": "5",
+            "name": "Tesbench design",
+            "scene": [
+                {
+                    "seq": 1,
+                    "type":"break",
+                    "content": {
+                        "text": "",
+                        "opt": [
+                            {"id": 1, "label": "Congrass! You have finished the lesson", "next": 0}
+                        ]
+                    },
+                    "defaultNext": 0,
+                    "previous": 0
+                }
+            ]
+        }
+    ],
+    "downloadable" : [
+        {"item": "Instruction Note", "url": "http://www.gmail.com"},
+        {"item": "Quick chart", "url": "http://www.inoutek.com"},
+        {"item": "Summarized statement", "url": "http://www.inoutek.vn"}
+    ]
+}
