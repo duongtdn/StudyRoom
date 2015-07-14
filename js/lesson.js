@@ -12,10 +12,6 @@
 
 */
 
-var phpLessonServer = 'phpserver/ajaxLoadLesson.php',
-    phpQuizServer   = 'phpserver/ajaxLoadQuiz.php';
-
-
 var lesson = {};
 var topic = [];
 

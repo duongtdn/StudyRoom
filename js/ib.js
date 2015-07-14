@@ -42,10 +42,6 @@ var IB = {};
             // method initilizes objects
             new: function(uri) {
 
-                // temp defined server
-                var phpIBServer = 'phpserver/ajaxLoadIB.php';
-
-
                 // try to load json data from uri
                 $.post(phpIBServer, {jsonUri:uri}, function(data, status) {
                     //console.log(data);
@@ -81,14 +77,7 @@ var IB = {};
                     board.hideCheckBoard();
                 });
                 $("#btn3").click(function(){
-                    board.clean();
-                    var myCheck = playGround.check();
-                    if (myCheck) {
-                        board.loadCheckBoard('img/ib/correct_img.jpg','Congrats! You have made an impression');
-                    } else {
-                        board.loadCheckBoard('','WRONG');
-                    }
-                    board.showCheckBoard();
+                    IB.check();
                 });
                 $("#btn4").click(function(){
                     board.loadCheckBoard('img/ib/correct_img.jpg','Congrats! You have made an impression');
@@ -98,7 +87,15 @@ var IB = {};
 
             // method checks user interaction result
             check: function() {
-
+				board.clean();
+				var myCheck = playGround.check();
+				if (myCheck) {
+					board.loadCheckBoard('img/ib/correct_img.jpg','Congrats! You have made an impression');
+				} else {
+					board.loadCheckBoard('','WRONG');
+				}
+				board.showCheckBoard();
+				return myCheck;
             },
 
             // method advances to next game
@@ -106,12 +103,16 @@ var IB = {};
                 // increase id
                 // if id is still in the range, load object
                 // otherwise, end of interactive board game
-                if (id < dataObj.length-1) {  // still in range
-                    id++;
-                    clean();
-                    load(dataObj[id]);
-                } else {    // end of game
-
+                if (id < dataObj.length) {  // still in range
+					if (IB.check()) {
+						id++;
+						clean();
+						if (id == dataObj.length) {
+							//IB.clean();
+						} else {
+							load(dataObj[id]);
+						}
+					}
                 }
             },
 
@@ -124,7 +125,12 @@ var IB = {};
                     load(dataObj[id]);
                 }
 
-            }
+            },
+			
+			clean: function() {
+				board.clean();
+				clean();
+			}
 
         };
 
@@ -651,11 +657,11 @@ var Dometic = {};
                 // update value based on enterred content
                 var content = this.innerHTML.replace(/<div>|<\/div>|<br>/gi,"");
                 this.parentObj.parentObj.value = content;
-                console.log (this.innerHTML + " - " + content);
+                //console.log (this.innerHTML + " - " + content);
             });
             divElement.addEventListener("keydown", function(evt) {
                 if (evt.keyCode == 13) {
-                    console.log (evt.keyCode);
+                   // console.log (evt.keyCode);
                 }
             });
 
