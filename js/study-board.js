@@ -315,8 +315,28 @@
         };
 
     }); // End of QuizController
-
-
+	
+	app.controller('IBController', function($scope, $timeout){
+		this.current = IB.getCurrentId();
+		this.total = IB.count();
+		
+		this.next = function() {
+			IB.next();
+		};
+		
+		this.back = function() {
+			IB.back();
+		};
+		
+		this.isFirst = function() {
+			return IB.getCurrentId() === 0;
+		};
+		
+		this.isLast = function() {
+			return IB.getCurrentId() === IB.count();
+		};
+		
+	}) // End of IBController;
 
     oclass = {
         name : "Verilog Beginner Course",

@@ -1,4 +1,13 @@
 
+.ib-nav {
+    top : 5px;
+    right : 5px;
+}
+
+.ib-nav-last {
+    right: 71px;
+}
+
 .interactive-board {
     width : 864px;
 }

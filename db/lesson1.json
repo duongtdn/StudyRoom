@@ -45,9 +45,16 @@
                     "seq": 5,
                     "type":"video",
                     "src": "ASj81daun5Q",
-                    "next": 0,
+                    "next": 6,
                     "previous": 3
-                }
+                },
+				{
+					"seq": 6,
+					"type" : "ib",
+					"uri" : "ib1.json",
+					"next" : 0,
+					"previous" : 5
+				}
             ]
         },
 

@@ -156,6 +156,14 @@ var loadLesson = function() {
                     sceneId = findSceneId(scene.next);
                 }
                 break;
+			case 'ib' :
+                if (scene.next === 0) {
+                    // finish a topic
+                    finishTopic();
+                } else {
+                    sceneId = findSceneId(scene.next);
+                }
+                break;
 
         }
 
@@ -280,6 +288,10 @@ var loadLesson = function() {
                     loadQuizData(scene.uri);
                     showQuizPanel();
                     break;
+				case 'ib' :
+					IB.new(scene.uri);
+					showIB();
+					break;
             }
         }
     };
@@ -290,6 +302,7 @@ var loadLesson = function() {
         $(".study-videoplayer").addClass("hidden");
         $(".study-breakpage").addClass("hidden");
         $(".study-quiz").addClass("hidden");
+		$(".study-ib").addClass("hidden");
     };
 
     var showVideoPlayer = function() {
@@ -303,6 +316,10 @@ var loadLesson = function() {
     var showQuizPanel = function(){
         $(".study-quiz").removeClass("hidden");
     };
+	
+	var showIB = function() {
+		$(".study-ib").removeClass("hidden");
+	};
 
 
     // default behavior of break screne
@@ -378,12 +395,8 @@ var loadLesson = function() {
         });
 */
 
-
-
     };
 
-
-//})();
 };
 
 

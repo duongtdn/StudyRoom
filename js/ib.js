@@ -51,12 +51,16 @@ var IB = {};
                     // construct Dom controlled object
                     if (!board) {
                         board = IB.Factory.boardConstructor();
-                    }
+                    } else {
+						board.clean();
+					}
 
                     // construct Canvas controlled object
                     if (!playGround) {
                         playGround = IB.Factory.playGroundConstructor();
-                    }
+                    } else {
+						playGround.clean();
+					}
 
                     // load first game
                     id = 0;
@@ -64,23 +68,6 @@ var IB = {};
 
                 }).fail(function() {
                     console.log( "IB: error getting data from server" );
-                });
-
-
-
-
-
-                $("#btn1").click(function(){
-                    board.showCheckBoard();
-                });
-                $("#btn2").click(function(){
-                    board.hideCheckBoard();
-                });
-                $("#btn3").click(function(){
-                    IB.check();
-                });
-                $("#btn4").click(function(){
-                    board.loadCheckBoard('img/ib/correct_img.jpg','Congrats! You have made an impression');
                 });
 
             },
@@ -108,7 +95,7 @@ var IB = {};
 						id++;
 						clean();
 						if (id == dataObj.length) {
-							//IB.clean();
+							board.loadInstruction("click Next to continue...");
 						} else {
 							load(dataObj[id]);
 						}
@@ -126,6 +113,15 @@ var IB = {};
                 }
 
             },
+			
+			getCurrentId: function() {
+				return id;
+			},
+			
+			count: function() {
+				//return dataObj.length;
+				return 3;
+			},
 			
 			clean: function() {
 				board.clean();
@@ -707,8 +703,3 @@ var Dometic = {};
 
 
 })();
-
-$(document).ready(function(){
-    var uri = '../db/ib/ib1.json';
-    IB.new(uri);
-});

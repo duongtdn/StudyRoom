@@ -9,21 +9,26 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/common.css" />
         <link rel="stylesheet" type="text/css" href="css/study.css" />
+		<link rel="stylesheet" type="text/css" href="css/ib.css" />
 
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="js/mkinetic-v5.1.0.js"></script>
+        <script type="text/javascript" src="js/kinetic-addon.js"></script>
+		<script type="text/javascript" src="js/ib.js"></script>
 
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/angular-sanitize.js"></script>
-		
-		<script type="text/javascript" src="js/header.js"></script>
-        
+		  
 		<script type="text/javascript" src="js/study-board.js"></script>
 
         <script type="text/javascript" src="js/common.js"></script>
 
         <script type="text/javascript" src="js/multimedia.js"></script>
         <script type="text/javascript" src="js/lesson.js"></script>
+		
 
     </head>
 
@@ -212,6 +217,29 @@
                                 </div>
                             </div> <!-- the video player -->
 
+							<!-- interaction board -->
+							<div class="study-ib hidden" ng-controller="IBController as ib">
+								<div class="ib-nav right-align" ng-class="{'ib-nav-last':ib.isLast()}">
+                                    <button class="btn btn-default btn-sm" type="button" ng-click="ib.back()" ng-hide="ib.isFirst()">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        Back
+                                    </button>
+                                    <button class="btn btn-default btn-sm" type="button" ng-click="ib.next()" ng-hide="ib.isLast()">
+                                        Next
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </button>
+                                </div>
+								<div class="panel panel-primary interactive-board">
+									<div class="panel-heading" > Interactive Board - {{ib.current}} / {{ib.total}} </div>
+									<div class="panel-body">
+										<div id="instruction">
+										</div>
+										<div id="interactive-board" style="position:relative">
+											<div id="cv-container"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 
                         </div> <!-- stydy-player -->
 
