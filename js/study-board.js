@@ -317,15 +317,24 @@
     }); // End of QuizController
 	
 	app.controller('IBController', function($scope, $timeout){
+		
 		this.current = IB.getCurrentId();
 		this.total = IB.count();
 		
+		this.reset = function() {
+			this.current = IB.getCurrentId();
+			this.total = IB.count();
+			console.log(this.current + "/" + this.total);
+		};
+		
 		this.next = function() {
 			IB.next();
+			this.current = IB.getCurrentId();
 		};
 		
 		this.back = function() {
 			IB.back();
+			this.current = IB.getCurrentId();
 		};
 		
 		this.isFirst = function() {

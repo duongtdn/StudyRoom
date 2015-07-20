@@ -40,7 +40,7 @@ var IB = {};
         return {
 
             // method initilizes objects
-            new: function(uri) {
+            new: function(uri,callback) {
 
                 // try to load json data from uri
                 $.post(phpIBServer, {jsonUri:uri}, function(data, status) {
@@ -65,6 +65,10 @@ var IB = {};
                     // load first game
                     id = 0;
                     load(dataObj[id]);
+					
+					if (callback) {
+						callback();
+					}
 
                 }).fail(function() {
                     console.log( "IB: error getting data from server" );
@@ -119,8 +123,7 @@ var IB = {};
 			},
 			
 			count: function() {
-				//return dataObj.length;
-				return 3;
+				return dataObj.length;				
 			},
 			
 			clean: function() {

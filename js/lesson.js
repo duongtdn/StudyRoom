@@ -289,7 +289,7 @@ var loadLesson = function() {
                     showQuizPanel();
                     break;
 				case 'ib' :
-					IB.new(scene.uri);
+					loadIB(scene.uri)					
 					showIB();
 					break;
             }
@@ -372,9 +372,9 @@ var loadLesson = function() {
             // it is done by invoking the refreshQuiz() of QuizController
             // however, since I use quiz as allias name for the controller
             // then I must clarify (hardcode) quiz when trying to retrieve in controller scope
-            // it is dude.
+            // it is bad.
             // in addition, have to know the element id of the div which contain the controller
-            // so it is purely MVC, dude!!!
+            // so it is purely MVC, bad!!!
             var anelem = angular.element(document.getElementById('quizCtrl'));
             var quizCtrl = anelem.scope();
             quizCtrl.$apply(function(){
@@ -396,6 +396,17 @@ var loadLesson = function() {
 */
 
     };
+	
+	var loadIB = function(uri) {
+		IB.new(uri, function() {
+			var anelem = angular.element(document.getElementById('IBCtrl'));
+			var IBCtrl = anelem.scope();
+			IBCtrl.$apply(function(){
+				var ib = IBCtrl.ib;			
+				ib.reset();
+			});
+		});
+	}
 
 };
 

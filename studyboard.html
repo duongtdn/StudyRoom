@@ -218,7 +218,7 @@
                             </div> <!-- the video player -->
 
 							<!-- interaction board -->
-							<div class="study-ib hidden" ng-controller="IBController as ib">
+							<div id="IBCtrl" class="study-ib hidden" ng-controller="IBController as ib">
 								<div class="ib-nav right-align" ng-class="{'ib-nav-last':ib.isLast()}">
                                     <button class="btn btn-default btn-sm" type="button" ng-click="ib.back()" ng-hide="ib.isFirst()">
                                         <span class="glyphicon glyphicon-chevron-left"></span>
