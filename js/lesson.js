@@ -130,6 +130,9 @@ var loadLesson = function() {
         // check whether the finished scene is the end scene of the topic
         switch (scene.type) {
             case 'video' :
+				// stop current video
+				player.player.stopVideo();
+				// find the next one
                 if (scene.next === 0) {
                     // finish a topic
                     finishTopic();
@@ -172,6 +175,10 @@ var loadLesson = function() {
     };
 
     onGoBack = function() {
+		if (scene.type == 'video') {
+			// stop current video
+			player.player.stopVideo();
+		}
         if (topicId == lesson.topic.length) {
             topicId--;
         }
@@ -410,7 +417,3 @@ var loadLesson = function() {
 
 };
 
-
-(function(){
-
-})();

@@ -52,8 +52,22 @@
 					"seq": 6,
 					"type" : "ib",
 					"uri" : "ib1.json",
-					"next" : 0,
+					"next" : 7,
 					"previous" : 5
+				},
+				{
+                    "seq": 7,
+                    "type":"video",
+                    "src": "JxPj3GAYYZ0",
+                    "next": 8,
+                    "previous": 6
+                },
+				{
+					"seq": 8,
+					"type" : "ib",
+					"uri" : "ib2.json",
+					"next" : 0,
+					"previous" : 7
 				}
             ]
         },
@@ -73,9 +87,16 @@
                     "seq": 2,
                     "type":"quiz",
                     "uri": "ls1quiz2.json",
-                    "next": 0,
+                    "next": 3,
                     "previous": 1
-                }
+                },
+				{
+					"seq": 3,
+					"type" : "ib",
+					"uri" : "ib3.json",
+					"next" : 0,
+					"previous" : 2
+				}
             ]
         },
 
