@@ -1,0 +1,30 @@
+{
+    "name": "Verilog Beginner Course",
+    "lesson": [
+        {
+            "name": "Lesson 1",
+            "snippet": "Verilog Day 1",
+            "url": "http: //localhost/hvm/studyroom.php?lesson=lesson1"
+        },
+        {
+            "name": "Lesson 2",
+            "snippet": "Verilog Day 2",
+            "url": "http: //localhost/hvm/studyroom.php?lesson=lesson2"
+        },
+        {
+            "name": "Lesson 3",
+            "snippet": "Verilog Day 3",
+            "url": "http: //localhost/hvm/studyroom.php?lesson=lesson3"
+        },
+        {
+            "name": "Lesson 4",
+            "snippet": "Verilog Day 4",
+            "url": "http: //localhost/hvm/studyroom.php?lesson=lesson4"
+        },
+        {
+            "name": "Lesson 5",
+            "snippet": "Verilog Day 5",
+            "url": "http: //localhost/hvm/studyroom.php?lesson=lesson5"
+        }
+    ]
+}
