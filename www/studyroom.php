@@ -14,7 +14,8 @@ if (isset($_GET['lesson'])) {
     if (file_exists($checkPath)) {
 
 
-        include 'studyboard.html';
+        //include 'studyboard.html';
+		include $html;
 
         // add js for load page
         $lessonUri = $_GET['lesson'];
