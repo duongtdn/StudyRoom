@@ -1,0 +1,15 @@
+{
+	"name" : "Class DB",
+	"VERL01" : {
+		"ename" : "Basic Verilog for Beginner",
+		"vname" : "Verilog can ban cho nguoi moi",
+		"duration" : 2,
+		"uri" : "Verilog1"
+	},
+	"VERL02" : {
+		"ename" : "Advandced Verilog",
+		"vname" : "Verilog trung cap",
+		"duration" : 3,
+		"uri" : "Verilog2"
+	}
+}
